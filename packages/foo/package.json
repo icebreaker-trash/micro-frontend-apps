@@ -1,0 +1,30 @@
+{
+  "name": "@icebreakers/foo",
+  "type": "module",
+  "version": "0.1.1",
+  "description": "my foo your bar pkg",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "unbuild --sourcemap",
+    "build": "unbuild",
+    "test": "vitest run",
+    "test:dev": "vitest",
+    "release": "pnpm publish"
+  }
+}
