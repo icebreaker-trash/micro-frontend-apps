@@ -4,9 +4,8 @@
 
 <template>
   <div>
-    <WujieVue width="100%" height="100%" name="xxx0" url="//localhost:8082/" :sync="true"></WujieVue>
-    <WujieVue width="100%" height="100%" name="xxx1" url="//localhost:8083/" :sync="true"></WujieVue>
-    <WujieVue width="100%" height="100%" name="xxx2" url="//localhost:8084/" :sync="true"></WujieVue>
+    <WujieVue width="100%" height="100%" name="aaa" url="//localhost:9000/" :sync="true"></WujieVue>
+    <WujieVue width="100%" height="100%" name="bbb" url="//localhost:3000/" :sync="true"></WujieVue>
   </div>
 </template>
 
