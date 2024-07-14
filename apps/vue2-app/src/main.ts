@@ -15,6 +15,13 @@ if (window.__POWERED_BY_WUJIE__) {
   window.__WUJIE_MOUNT = () => {
     const router = new VueRouter({ routes })
     instance = new Vue({ router, render: h => h(App), pinia }).$mount('#app')
+    window.$router = router
+    window.$instance = instance
+    window.$wujie?.bus.$emit('addTab', 'vue2', '/')
+
+    router.afterEach((to) => {
+      window.$wujie?.bus.$emit('addTab', 'vue2', to.path)
+    })
   }
   window.__WUJIE_UNMOUNT = () => {
     instance.$destroy()

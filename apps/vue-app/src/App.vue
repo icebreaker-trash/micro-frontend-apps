@@ -4,7 +4,9 @@
 
 <template>
   <div>
-    <h1>Vue3</h1>
+    <h1 class="text-4xl">
+      Vue3
+    </h1>
     <div>
       <router-view v-slot="{ Component }">
         <transition>

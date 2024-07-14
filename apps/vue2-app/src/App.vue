@@ -4,7 +4,9 @@
 
 <template>
   <div>
-    <h1>Vue2</h1>
+    <h1 class="text-4xl">
+      Vue2
+    </h1>
     <div>
       <transition>
         <keep-alive>
