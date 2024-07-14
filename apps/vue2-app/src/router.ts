@@ -1,18 +1,15 @@
 import Vue from 'vue'
 import type { RouteConfig } from 'vue-router'
 import VueRouter from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 
-Vue.use(VueRouter)
+import Index from './pages/index.vue'
+import Bar from './pages/bar.vue'
+import Foo from './pages/foo.vue'
 
 export const routes: RouteConfig[] = [
-  { path: '/', component: HelloWorld, props: { msg: 'Home' } },
-  { path: '/bar', component: HelloWorld, props: { msg: 'Bar' } },
+  { path: '/', component: Index },
+  { path: '/foo', component: Foo },
+  { path: '/Bar', component: Bar },
 ]
 
-const router = new VueRouter({
-  mode: 'history',
-  routes,
-})
-
-export default router
+Vue.use(VueRouter)

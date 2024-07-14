@@ -1,13 +1,18 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
 
-const route = useRoute()
 </script>
 
 <template>
   <div>
+    <h1>Vue3</h1>
     <div>
-      <RouterView />
+      <router-view v-slot="{ Component }">
+        <transition>
+          <keep-alive>
+            <component :is="Component" />
+          </keep-alive>
+        </transition>
+      </router-view>
     </div>
     <div class="border-t">
       <RouterLink to="/">

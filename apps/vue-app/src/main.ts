@@ -11,9 +11,13 @@ if (window.__POWERED_BY_WUJIE__) {
     instance = createApp(App)
     instance.use(router)
     instance.mount('#app')
+    window.$router = router
+    window.$instance = instance
   }
   window.__WUJIE_UNMOUNT = () => {
     instance.unmount()
+    delete window.$router
+    delete window.$instance
   }
 }
 else {

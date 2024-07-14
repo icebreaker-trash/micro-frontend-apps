@@ -5,7 +5,7 @@
 a {
   @apply block text-slate-400 border-current font-semibold underline;
 
-  &.router-link-active {
+  &.router-link-exact-active {
     @apply text-sky-500;
   }
 }
