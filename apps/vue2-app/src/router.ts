@@ -13,3 +13,5 @@ export const routes: RouteConfig[] = [
 ]
 
 Vue.use(VueRouter)
+
+export const subAppLocation = window.__POWERED_BY_WUJIE__ ? window.$wujie.location : window.location

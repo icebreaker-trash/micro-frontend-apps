@@ -129,6 +129,7 @@ onBeforeUnmount(() => {
           v-for="app in apps" v-show="app.visible" :key="app.name" width="100%" height="100%" :name="app.name"
           :url="app.url" :sync="true" :beforeLoad="beforeLoad" :beforeMount="beforeMount" :afterMount="afterMount"
           :beforeUnmount="beforeUnmount" :afterUnmount="afterUnmount"
+          :alive="true"
         />
       </div>
     </div>

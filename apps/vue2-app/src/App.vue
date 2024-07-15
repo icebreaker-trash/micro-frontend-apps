@@ -1,6 +1,14 @@
 <script setup lang="ts">
+import { subAppLocation } from './router'
+
 function setHref(href: string) {
-  window.location.href = href
+  // subAppLocation.href = href
+  console.log(subAppLocation)
+  console.log(window.$wujie.location.href)
+  // window.$wujie.location.href = href
+  window.$wujie.location.href = href
+  console.log(window.$wujie.location.href)
+  // window.location.href = href
 }
 </script>
 
