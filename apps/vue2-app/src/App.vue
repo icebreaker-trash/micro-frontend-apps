@@ -1,5 +1,7 @@
 <script setup lang="ts">
-
+function setHref(href: string) {
+  window.location.href = href
+}
 </script>
 
 <template>
@@ -24,6 +26,18 @@
       <RouterLink to="/bar">
         Bar
       </RouterLink>
+      <h2>
+        window.location.href
+      </h2>
+      <button @click="setHref('/')">
+        Index
+      </button>
+      <button @click="setHref('/foo')">
+        Foo
+      </button>
+      <button @click="setHref('/bar')">
+        Bar
+      </button>
     </div>
   </div>
 </template>
