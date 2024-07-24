@@ -13,10 +13,6 @@ if (window.__POWERED_BY_WUJIE__) {
     instance.mount('#app')
     window.$router = router
     window.$instance = instance
-    window.$wujie?.bus.$emit('addTab', 'vue3', '/')
-    router.afterEach((to) => {
-      window.$wujie?.bus.$emit('addTab', 'vue3', to.path)
-    })
   }
   window.__WUJIE_UNMOUNT = () => {
     instance.unmount()

@@ -1,26 +1,24 @@
 <script setup lang="ts">
-const subAppLocation = window.__POWERED_BY_WUJIE__ ? window.$wujie.location : window.location
+import { onMounted, watch } from "vue";
+import { useRoute, useRouter } from "vue-router";
 
-if (window.__WUJIE?.degrade || !window.Proxy || !window.CustomElementRegistry) {
-  window.$wujie.location.href = 'https://v2.vuejs.org/'
-}
-else {
-  window.location.href = 'https://wujicode.cn/xy/app/prod/official/index'
-}
+const route = useRoute();
+const $router = useRouter();
 
-function setHref(href: string) {
-  if (window.__WUJIE?.degrade || !window.Proxy || !window.CustomElementRegistry) {
-    window.$wujie.location.href = 'https://v2.vuejs.org/'
-  }
-  else {
-    window.location.href = 'https://wujicode.cn/xy/app/prod/official/index'
-  }
-}
+watch(() => window.$wujie, () => {
+  window.$wujie?.bus.$emit("sub-route-change", "vue3", route.path);
+});
+
+onMounted(() => {
+  window.$wujie?.bus.$on("vue3-router-change", (path: string) => {
+      return $router.push(path);
+    });
+});
 </script>
 
 <template>
   <div>
-    <h1 class="text-4xl">
+    <h1 class="text-4xl text-black">
       Vue3
     </h1>
     <div>
@@ -33,30 +31,15 @@ function setHref(href: string) {
       </router-view>
     </div>
     <div class="border-t">
-      <RouterLink to="/">
+      <router-link to="/index">
         Index
-      </RouterLink>
-      <RouterLink to="/foo">
+      </router-link>
+      <router-link to="/foo">
         Foo
-      </RouterLink>
-      <RouterLink to="/bar">
+      </router-link>
+      <router-link to="/bar">
         Bar
-      </RouterLink>
-      <h2>
-        window.location.href
-      </h2>
-      <button @click="setHref('/')">
-        Index
-      </button>
-      <button @click="setHref('/foo')">
-        Foo
-      </button>
-      <button @click="setHref('/bar')">
-        Bar
-      </button>
-      <!-- <a href="/">Index</a>
-      <a href="/foo">Foo</a>
-      <a href="/bar">bar</a> -->
+      </router-link>
     </div>
   </div>
 </template>

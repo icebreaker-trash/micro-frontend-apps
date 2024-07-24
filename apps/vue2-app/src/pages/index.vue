@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <div>
-    index
+  <div class="text-black">
+    indexindex5454
     <input type="range">
   </div>
 </template>
