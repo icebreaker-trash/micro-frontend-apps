@@ -1,16 +1,17 @@
 <script setup lang="ts">
 import { onMounted, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import { WUJIE_MESSAGE_CODE } from "../../../shared/constants/index";
 
 const route = useRoute();
 const $router = useRouter();
 
 watch(() => window.$wujie, () => {
-  window.$wujie?.bus.$emit("sub-route-change", "vue3", route.path);
+  window.$wujie?.bus.$emit(WUJIE_MESSAGE_CODE.SUB_ROUTE_CHANGE, "vue3", route.path);
 });
 
 onMounted(() => {
-  window.$wujie?.bus.$on("vue3-router-change", (path: string) => {
+  window.$wujie?.bus.$on(WUJIE_MESSAGE_CODE.VUE3_ROUTE_CHANGE, (path: string) => {
       return $router.push(path);
     });
 });

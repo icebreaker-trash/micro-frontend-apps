@@ -1,9 +1,6 @@
 <script lang="ts" setup>
-import { onBeforeUnmount, reactive } from "vue";
-import { useRoute, useRouter } from "vue-router";
-import WujieVue from "wujie-vue3";
+import { reactive } from "vue";
 
-const { bus } = WujieVue;
 const apps = reactive([
   {
     name: "vue3",
@@ -42,21 +39,14 @@ const apps = reactive([
     ],
   },
 ]);
-
-const currentRoute = useRoute();
-
-const $router = useRouter();
 </script>
 
 <template>
   <div>
-    <div class="fixed top-0 bottom-0 left-0 z-50 w-52">
+    <div class="fixed top-0 bottom-0 left-0 z-50 w-52 bg-black">
       <el-scrollbar>
         <el-menu
           default-active="vue3"
-          background-color="bg-slate-700"
-          text-color="bg-white"
-          active-text-color="bg-blue-400"
           :unique-opened="false"
           :collapse-transition="false"
           mode="vertical"

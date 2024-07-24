@@ -1,13 +1,13 @@
 <script lang="ts">
-
+import { WUJIE_MESSAGE_CODE } from "../../../shared/constants/index";
 export default {
   watch: {
     $route() {
-      window.$wujie?.bus.$emit("sub-route-change", "vue2", this.$route.path);
+      window.$wujie?.bus.$emit(WUJIE_MESSAGE_CODE.SUB_ROUTE_CHANGE, "vue2", this.$route.path);
     },
   },
   mounted() {
-    window.$wujie?.bus.$on("vue2-router-change", (path: string) => this.$router.push(path));
+    window.$wujie?.bus.$on(WUJIE_MESSAGE_CODE.VUE2_ROUTE_CHANGE, (path: string) => this.$router.push(path));
   },
 };
 </script>
