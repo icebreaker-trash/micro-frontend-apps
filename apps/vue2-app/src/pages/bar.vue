@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div>
+  <div class="text-black">
     bar
     <input type="range">
   </div>

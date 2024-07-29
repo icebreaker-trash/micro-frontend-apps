@@ -1,22 +1,20 @@
-<script setup lang="ts">
-import { subAppLocation } from './router'
-
-function setHref(href: string) {
-  // subAppLocation.href = href
-  console.log(subAppLocation)
-  console.log(window.$wujie.location.href)
-  // window.$wujie.location.href = href
-  window.$wujie.location.href = href
-  console.log(window.$wujie.location.href)
-  // window.location.href = href
-}
+<script lang="ts">
+import { WUJIE_MESSAGE_CODE } from "../../../shared/constants/index";
+export default {
+  watch: {
+    $route() {
+      window.$wujie?.bus.$emit(WUJIE_MESSAGE_CODE.SUB_ROUTE_CHANGE, "vue2", this.$route.path);
+    },
+  },
+  mounted() {
+    window.$wujie?.bus.$on(WUJIE_MESSAGE_CODE.VUE2_ROUTE_CHANGE, (path: string) => this.$router.push(path));
+  },
+};
 </script>
 
 <template>
   <div>
-    <h1 class="text-4xl">
-      Vue2
-    </h1>
+    <h1 class="text-4xl text-black">Vue2</h1>
     <div>
       <transition>
         <keep-alive>
@@ -25,27 +23,9 @@ function setHref(href: string) {
       </transition>
     </div>
     <div class="border-t">
-      <RouterLink to="/">
-        Index
-      </RouterLink>
-      <RouterLink to="/foo">
-        Foo
-      </RouterLink>
-      <RouterLink to="/bar">
-        Bar
-      </RouterLink>
-      <h2>
-        window.location.href
-      </h2>
-      <button @click="setHref('/')">
-        Index
-      </button>
-      <button @click="setHref('/foo')">
-        Foo
-      </button>
-      <button @click="setHref('/bar')">
-        Bar
-      </button>
+      <router-link to="/index"> Index </router-link>
+      <router-link to="/foo"> Foo </router-link>
+      <router-link to="/bar"> Bar </router-link>
     </div>
   </div>
 </template>

@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --el-menu-text-color: #d7bbbb !important;
+  --el-menu-hover-text-color: #d7bbbb !important;
+  --el-menu-bg-color: #000 !important;
+  --el-menu-hover-bg-color: #378ae7 !important;
+  --el-menu-active-color: #ffffff !important;
+}
+
 html {
   @apply bg-slate-900 text-white;
 }

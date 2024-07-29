@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    index
+    index5454
     <input type="range">
   </div>
 </template>
